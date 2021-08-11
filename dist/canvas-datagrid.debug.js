@@ -1043,6 +1043,8 @@ __webpack_require__.r(__webpack_exports__);
 /*globals define: true, MutationObserver: false, requestAnimationFrame: false, performance: false, btoa: false*/
 
 
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(self) {
   self.getClippingRect = function (ele) {
     var boundingRect = self.position(self.parentNode),
@@ -1400,7 +1402,25 @@ __webpack_require__.r(__webpack_exports__);
     self.input.style.fontSize = parseInt(self.style.editCellFontSize, 10) * self.scale + 'px';
     var cellValueIsEmpty = [null, undefined].indexOf(cell.value) !== -1;
     var shouldClearCellValue = cellValueIsEmpty || inEnterMode;
-    self.input.value = shouldClearCellValue ? '000' : cell.value;
+
+    if (_typeof(cell.value) === 'object') {
+      ev = {
+        value: cell.value,
+        row: {
+          endCap: ''
+        },
+        header: cell.header
+      };
+      ev.cell = cell;
+      f = self.formatters[header.type || 'string'];
+
+      if (f) {
+        self.input.value = shouldClearCellValue ? '' : f(cell.value);
+      }
+    } else {
+      self.input.value = shouldClearCellValue ? '' : cell.value;
+    }
+
     self.input.focus();
     self.input.addEventListener('click', self.stopPropagation);
     self.input.addEventListener('dblclick', self.stopPropagation);

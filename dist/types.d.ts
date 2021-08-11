@@ -246,9 +246,9 @@ declare class canvasDatagrid {
      * @param x - The column index of the cell to edit.
      * @param y - The row index of the cell to edit.
      * @param inEnterMode - If true, starting to type in cell will replace the
-    cell's previous value instead of appending, and using the arrow keys will allow
-    the user to navigate to adjacent cells instead of moving the text cursor around
-    (default is false, and means user is in 'edit' mode).
+     * cell's previous value instead of appending, and using the arrow keys will allow
+     * the user to navigate to adjacent cells instead of moving the text cursor around
+     * (default is false, and means user is in 'edit' mode).
      */
     static beginEditAt(x: number, y: number, inEnterMode: boolean): void;
     /**

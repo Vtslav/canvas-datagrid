@@ -1404,15 +1404,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var shouldClearCellValue = cellValueIsEmpty || inEnterMode;
 
     if (_typeof(cell.value) === 'object') {
-      ev = {
+      var ev = {
         value: cell.value,
         row: {
           endCap: ''
         },
-        header: cell.header
+        header: cell.header,
+        cell: cell
       };
-      ev.cell = cell;
-      f = self.formatters[header.type || 'string'];
+      var f = self.formatters[cell.header.type || 'string'];
 
       if (f) {
         self.input.value = shouldClearCellValue ? '' : f(cell.value);

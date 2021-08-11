@@ -1415,7 +1415,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       var f = self.formatters[cell.header.type || 'string'];
 
       if (f) {
-        self.input.value = shouldClearCellValue ? '' : f(cell.value);
+        self.input.value = shouldClearCellValue ? '' : f(ev);
       }
     } else {
       self.input.value = shouldClearCellValue ? '' : cell.value;

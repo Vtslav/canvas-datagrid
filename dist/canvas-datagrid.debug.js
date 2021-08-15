@@ -1410,7 +1410,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           endCap: ''
         },
         header: cell.header,
-        cell: cell
+        cell: cell,
+        event: 'beginedit'
       };
       var f = self.formatters[cell.header.type || 'string'];
 

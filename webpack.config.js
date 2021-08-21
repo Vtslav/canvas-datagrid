@@ -22,7 +22,7 @@ const developmentConfig = {
   ...productionConfig,
 
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: [
       path.join(__dirname, 'dist'),

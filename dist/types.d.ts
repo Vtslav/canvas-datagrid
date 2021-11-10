@@ -268,6 +268,12 @@ declare class canvasDatagrid {
      */
     static removeEventListener(ev: string, fn: (...params: any[]) => any): void;
     /**
+     * Removes the given listener function from the given event.  Must be an actual reference to the function that was bound.
+     * @param ev - The name of the event to unsubscribe from.
+     * @param fn - The event procedure to execute when the event is raised.
+     */
+    static removeEventListener(ev: string, fn: (...params: any[]) => any): void;
+    /**
      * Fires the given event, passing an event object to the event subscribers.
      * @param ev - The name of the event to dispatch.
      * @param e - The event object.
